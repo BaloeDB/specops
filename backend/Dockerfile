@@ -4,7 +4,7 @@ FROM gradle:latest AS BUILD
 WORKDIR /usr/app/
 COPY . .
 RUN gradle build
-COPY /build/libs/*-SNAPSHOT.jar /build/libs/app.jar
+COPY /usr/app/build/libs/*-SNAPSHOT.jar /usr/app/build/libs/app.jar
 
 # Package stage
 
