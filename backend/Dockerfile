@@ -9,7 +9,7 @@ RUN gradle build
 
 FROM eclipse-temurin:21-jre-jammy AS final
 ENV JAR_NAME=app.jar
-ENV APP_HOME=/usr/app/
+ENV APP_HOME=/usr/app
 WORKDIR $APP_HOME
 COPY --from=BUILD $APP_HOME .
 EXPOSE 8080
