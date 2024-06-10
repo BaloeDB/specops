@@ -1,3 +1,4 @@
+RUN gradle build
 FROM eclipse-temurin:21-jre-jammy AS final
 ARG JAR_FILE=*.jar
 COPY ${JAR_FILE} app.jar
