@@ -4,12 +4,11 @@ FROM gradle:latest AS BUILD
 WORKDIR /usr/app/
 COPY . .
 RUN gradle build
-COPY /usr/app/build/libs/*-SNAPSHOT.jar /usr/app/build/libs/app.jar
 
 # Package stage
 
 FROM eclipse-temurin:21-jre-jammy AS final
-ENV JAR_NAME=app.jar
+ENV JAR_NAME=specops-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/usr/app
 WORKDIR $APP_HOME
 COPY --from=BUILD $APP_HOME .
