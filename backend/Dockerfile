@@ -1,18 +1,9 @@
 #Build stage
 
-FROM gradle:5.3.0-jdk-alpine AS BUILD
-ENV APP_HOME=/usr/app/
-WORKDIR $APP_HOME
-COPY build.gradle settings.gradle $APP_HOME
-  
-COPY gradle $APP_HOME/gradle
-COPY --chown=gradle:gradle . /home/gradle/src
-USER root
-RUN chown -R gradle /home/gradle/src
-    
-RUN gradle build || return 0
-COPY . .
-RUN gradle clean build
+FROM gradle:latest AS BUILD
+WORKDIR /usr/app/
+COPY . . 
+RUN gradle build
 
 # Package stage
 
