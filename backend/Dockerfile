@@ -4,7 +4,7 @@ RUN gradle build
 
 # Package stage
 FROM eclipse-temurin:21-jre-jammy AS final
-ARG JAR_FILE=*.jar
+ARG JAR_FILE=/build/libs/*SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
