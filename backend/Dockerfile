@@ -2,8 +2,9 @@
 
 FROM gradle:latest AS BUILD
 WORKDIR /usr/app/
-COPY *-SNAPSHOT.jar app.jar
+COPY . .
 RUN gradle build
+COPY /build/libs/*-SNAPSHOT.jar /build/libs/app.jar
 
 # Package stage
 
