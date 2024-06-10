@@ -1,5 +1,5 @@
 #Build stage
-FROM gradle:latest AS BUILD. 
+FROM gradle:latest AS BUILD
 RUN gradle build
 
 # Package stage
