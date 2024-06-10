@@ -2,7 +2,7 @@
 
 FROM gradle:latest AS BUILD
 WORKDIR /usr/app/
-COPY . . 
+COPY *-SNAPSHOT.jar app.jar
 RUN gradle build
 
 # Package stage
